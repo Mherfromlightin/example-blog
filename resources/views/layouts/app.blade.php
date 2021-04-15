@@ -13,6 +13,10 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
+    <script>
+        window.App = @json($appVariables);
+    </script>
+
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
@@ -26,7 +30,7 @@
     </header>
 
     <!-- Page Content -->
-    <main>
+    <main id="app">
         @yield('content')
     </main>
 </div>

@@ -5,9 +5,6 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight inline-block">
             Articles
         </h2>
-        <a href="/articles/create" type="button" class="float-right inline-flex items-center px-2.5 py-1.5 border border-transparent text-xs font-medium rounded text-green-700 bg-green-100 hover:bg-green-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-            Create
-        </a>
     </div>
 @endsection
 
@@ -53,16 +50,13 @@
                                                     <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                                                         {{ $article->author->name }}
                                                     </span>
-
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ url("/articles/{$article->id}") }}"
+                                                <a href="{{ url("/admin/articles/{$article->id}") }}"
                                                    class="text-indigo-600 hover:text-indigo-900">Show</a>
                                             </td>
                                         </tr>
                                     @endforeach
-
-                                    <!-- More items... -->
                                     </tbody>
                                 </table>
                             </div>

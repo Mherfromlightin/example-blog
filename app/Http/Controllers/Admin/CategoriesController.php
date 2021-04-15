@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateCategoryRequest;
 use App\Models\Category;
-use Illuminate\Support\Facades\Session;
 
 class CategoriesController extends Controller
 {
@@ -18,20 +17,20 @@ class CategoriesController extends Controller
 
     public function create()
     {
-        $parentCategories = Category::pluck('name', 'id');
+        $categories = Category::all('name', 'id')->toJson();
 
-        return view('admin.categories.create', compact('parentCategories'));
+        return view('admin.categories.create', compact('categories'));
     }
 
     public function store(CreateCategoryRequest $request)
     {
         Category::create([
             'name' => $request->name,
-            'parent_category_id' => $request->parent_category_id,
+            'parent_category_id' => $request->parentCategory,
         ]);
 
-        Session::flash('success_message', 'Category created successfully!');
-
-        return redirect()->back();
+        return response()->json([
+            'message' => 'Category created successfully!'
+        ]);
     }
 }

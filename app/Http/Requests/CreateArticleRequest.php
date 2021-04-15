@@ -25,8 +25,14 @@ class CreateArticleRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'required|string|max:255',
+            'description' => 'required|string|max:1000',
+            'categories' => 'nullable|array',
             'photo' => 'nullable|mimes:png,jpg,jpeg,csv,txt,xlx,xls,pdf|max:10000',
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->offsetSet('categories', explode(',', $this->categories));
     }
 }

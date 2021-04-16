@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/articles/create', [ArticlesController::class, 'create'])->name('articles.create');
     Route::get('/articles/search', [ArticlesController::class, 'search'])->name('articles.search');
     Route::get('/articles/{article}', [ArticlesController::class, 'show'])->name('articles.show');
+    Route::get('/articles', [ArticlesController::class, 'index'])->name('articles.index');
     Route::post('/articles', [ArticlesController::class, 'store'])->name('articles.store');
 });
 

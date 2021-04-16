@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+    public function index()
+    {
+        $articles = Article::where('author_id', auth()->id())->get();
+
+        return view('articles.index', compact('articles'));
+    }
+
     public function create()
     {
         $categories = Category::all('name', 'id')->toJson();

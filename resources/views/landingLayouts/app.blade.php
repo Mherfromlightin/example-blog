@@ -22,7 +22,13 @@
 </head>
 <body class="font-sans antialiased">
 <div class="bg-white" id="app">
-    @yield('content')
+    <div class="relative overflow-hidden">
+        <header class="relative">
+            @include('partials._menu')
+        </header>
+        @yield('content')
+        @include('partials._footer')
+    </div>
 </div>
 
 

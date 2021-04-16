@@ -11,7 +11,7 @@ window.Vue = Vue;
 require('./load-components');
 require('./forms/bootstrap');
 
-Vue.filter('date', value => moment(value).format('MMMM d, Y'));
+Vue.filter('date', value => moment(value).format('MMMM D, Y'));
 
 const app = new Vue({
     el: '#app',

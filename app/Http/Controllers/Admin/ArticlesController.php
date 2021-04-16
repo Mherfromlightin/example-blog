@@ -9,13 +9,7 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        $user = auth()->user();
-
-        if ($user->isAdmin()) {
-            $articles = Article::all();
-        } else {
-            $articles = Article::where('author_id', $user->id)->get();
-        }
+        $articles = Article::all();
 
         return view('admin.articles.index', compact('articles'));
     }
